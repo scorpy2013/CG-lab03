@@ -1,0 +1,82 @@
+
+<html>
+<body>
+
+<canvas id='lab02' width='500px' height='500px'>
+</canvas>
+<script src="script.js"></script>
+
+<script>
+    function Arrow(ctx, x0, y0, x1, y1, color) {
+        ctx.fillStyle = color;
+        var x = x0;
+        var y = y0;
+        var eps = 0;
+
+        var DirectionX = (x1 - x0) / Math.abs(x1 - x0);
+        var DirectionY = (y1 - y0) / Math.abs(y1 - y0);
+
+        if (Math.abs(x1 - x0) > Math.abs(y1 - y0)) {
+
+            while (x != x1) {
+                eps += +2 * (y1 - y0);
+                if (Math.abs(eps) >= Math.abs(x1 - x0)) {
+                    y += DirectionY;
+                    eps -= DirectionY * DirectionX * (x1 - x0) * 2;
+                }
+
+                ctx.fillRect(x, y, 2, 2);
+                x += DirectionX;
+
+
+            }
+
+        }
+
+        while (y != y1) {
+            eps = eps + 2 * (x1 - x0);
+            if (Math.abs(eps) >= Math.abs(y1 - y0)) {
+                x += DirectionX;
+                eps = eps - DirectionY * DirectionX * (y1 - y0) * 2;
+
+            }
+            ctx.fillRect(x, y, 2, 2);
+
+            y += DirectionY;
+
+        }
+
+    }
+
+    function ArrowMove(x0, y0, R) {
+        var angle = ((new Date()).getSeconds() * 6) % 360;
+        var x1 = Math.abs(Math.trunc(x0 + R * Math.cos(angle * Math.PI / 180)));
+        var y1 = Math.abs(Math.trunc(y0 + R * Math.sin(angle * Math.PI / 180)));
+        Arrow(ctx, x0, y0, x1, y1, "magenta");
+        setTimeout(function () {
+            Arrow(ctx, x0, y0, x1, y1, "blue")
+        }, 1000)
+    }
+
+    var canvas = document.getElementById('lab02');
+    var ctx = canvas.getContext('2d');
+    var x0 = 220, y0 = 220;
+    var radius = 190;
+    var ArrowR = 200;
+    ctx.beginPath();
+    ctx.strokeStyle = "darkmagenta";
+    ctx.arc(x0, y0, ArrowR, 0, 7);
+    ctx.arc(x0, y0, ArrowR-5, 0, 7);
+    ctx.arc(x0, y0, ArrowR-10, 0, 7);
+    ctx.fillStyle= "blue";
+    ctx.fill();
+    ctx.lineWidth = 2;
+    ctx.stroke();
+    setInterval(function () {
+        ArrowMove(x0, y0, radius)
+    }, 1000);
+
+</script>
+
+</body>
+</html>
