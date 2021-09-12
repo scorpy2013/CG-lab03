@@ -5,4 +5,4 @@ ________________________________________________________________________________
 
 Computer Graphic - Laboratory Work 02
 =====================
-![Результаты работы программы](https://github.com/scorpy2013/CG-lab01/blob/master/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20%D0%BE%D1%82%202021-09-11%2015-36-33.png)
+![Результаты работы программы](https://github.com/scorpy2013/CG-lab02/blob/main/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20%D0%BE%D1%82%202021-09-13%2000-40-29.png)
